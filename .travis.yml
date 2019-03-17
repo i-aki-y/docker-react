@@ -1,0 +1,10 @@
+sudo: required
+services:
+        - docker
+
+before_install:
+        - docker build -t aki/docker-react -f Dockerfile.dev .
+
+script:
+        - docker run aki/docker-react npm run test -- --coverage
+    
